@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>User Details Table</title>
+    <style>
+        #bar{
+           margin-top: 40px;
+        }
+        #hname{
+          display: flex;
+          
+          justify-content: center;
+          margin-top: 30px;
+          color: blueviolet;
+          font-family: 'Times New Roman', Times, serif;
+          
+          
+          
+        }
+        body{
+          background-color: rgb(130, 210, 164);
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <h1 id="hname">USER DETAILS</h1>
+  
+    <div class="container bg-success" id="bar">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          {{%tableBody}}
+        </tbody>
+      </table>
+    </div>
+  
+    <form action="/formpage" method="get">
+      <input class="btn btn-danger mx-5" type="submit" value="ADD USER">
+    </form>
+
+    
+  
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

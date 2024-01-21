@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>register form</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  
+  <style>
+     body{
+      background-color: rgb(143, 143, 195);
+     }
+   
+  </style>
+</head>
+<body >
+
+  <div class="container mt-5 bg-success  ">
+    <h2 class="mb-4 text-center text-primarey">REGISTRATION FORM</h2>
+
+    <form method="post" action="/submit">
+      
+      <div class="form-group  ">
+        <label for="inputName">Name</label>
+        <input type="text" name="name" class="form-control" id="inputName" placeholder="Your Name" >
+        <span id="error-1"></span>
+      </div>
+
+      <!-- Age Input -->
+      <div class="form-group">
+        <label for="inputAge">Age</label>
+        <input type="number" name="age" class="form-control" id="inputAge" placeholder="Your Age" >
+        <span id="error-2"></span>
+
+      </div>
+
+      <!-- Email Input -->
+      <div class="form-group">
+        <label for="inputEmail">Email address</label>
+        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="name@example.com" >
+        <span id="error-3"></span>
+
+      </div>
+
+      <!-- Phone Input -->
+      <div class="form-group">
+        <label for="inputPhone">Phone</label>
+        <input type="tel" name="phone" class="form-control" id="inputPhone" placeholder="Your Phone Number" >
+        <span id="error-4"></span>
+
+      </div>
+
+     
+      
+      
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary mt-3 mb-3 "onclick=" return formValidation()">Submit</button>
+
+    </form>   
+
+  </div>
+
+  <form action= "/home" method="post">
+    <input class="btn btn-danger" type="submit" value="HOME">
+  </form>  
+
+      
+  
+  <script>
+    function formValidation() {
+      const name = document.getElementById("inputName").value;
+      const age = document.getElementById("inputAge").value;
+      const email = document.getElementById("inputEmail").value;
+      const phone = document.getElementById("inputPhone").value;
+
+      const error1 = document.getElementById("error-1");
+      const error2 = document.getElementById("error-2");
+      const error3 = document.getElementById("error-3");
+      const error4 = document.getElementById("error-4");
+
+         error1.style.color="red";
+         error2.style.color="red";
+         error3.style.color="red";
+         error4.style.color="red";
+
+      
+      error1.innerHTML = "";
+      error2.innerHTML = "";
+      error3.innerHTML = "";
+      error4.innerHTML = "";
+
+      
+      if (name.trim() === "") {
+        error1.innerHTML = "Name cannot be empty.";
+         return false;
+      }
+
+      
+      if (age.trim() === "" || isNaN(age) || age <= 0) {
+        error2.innerHTML = "Please enter a valid age.";
+        return false;
+      }
+
+      
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.match(emailRegex)) {
+        error3.innerHTML = "Please enter a valid email address.";
+        return false;
+      }
+
+      
+      const phoneRegex = /^\d{10}$/;
+      if (!phone.match(phoneRegex)) {
+        error4.innerHTML = "Please enter a valid 10-digit phone number.";
+        return false;
+      }
+
+      
+      return true;
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
